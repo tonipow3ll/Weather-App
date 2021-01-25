@@ -33,27 +33,21 @@ function showWeather(response){
     let city = document.querySelector('.location .city')
     city.innerText = `${response.city.name}, ${response.city.country}`;
     
-    console.log(response.temp)
-    let temp = document.querySelector('.current .temp')
-    temp.innerHTML = `${Math.round(response.list[0].main.temp)}<span>°F</span>`
-};
-// Here we run our AJAX call to the OpenWeatherMap API
-// $.ajax({
-// url: queryURL + APIKey + units,
-// method: "GET"
-// }) .then(function(response) {
-    
-// $(".city").html("<h1>" + response.name + " Weather Details</h1>");
-// $(".wind").text("Wind Speed: " + response.wind.speed);
-// $(".humidity").text("Humidity: " + response.main.humidity);
-// $(".temp").text(response.main.temp +" F°");
-// };
+    let temperature = document.querySelector('.current .temp')
+    temperature.innerHTML = `${Math.round(response.list[0].main.temp)}<span>°F</span>`;
 
+    let lowHighTemp = document.querySelector('.hi-low')
+    lowHighTemp.innerText = `Low ${Math.round(response.list[0].main.temp_min)}°F /  High ${Math.round(response.list[0].main.temp_max)}°F`;
+
+    let fiveDay = document.querySelector('.fiveday')
+    fiveDay.innerText = `${response.list[0].main.temp}`
+};
+
+// THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
+// WHEN I view the UV index
+// THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
+// WHEN I view future weather conditions for that city
+// THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
 
 // end script
-
-
-// add event listener for input box - so users can customize API call 
-// add event listener - when button is clicked, API call will fire
-// set previously searched records to LS 
  });
