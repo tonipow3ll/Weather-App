@@ -5,16 +5,36 @@ $( document ).ready(function() {
     const api = {
         key: "6e4d2dd0c20c78bde4e20e01e275ea85",
         base: "https://api.openweathermap.org/data/2.5/"
+       // base: "https://api.openweathermap.org/data/2.5/"
        // original API URL  base: "https://api.openweathermap.org/data/2.5/"
      }
 //weather API
-let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" ;
-let APIKey = "&appid=49f44633a22b64ed242a4f937e6ef855";
-let units = "&units=imperial"
+// let queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}" ;
+// let APIKey = "&appid=49f44633a22b64ed242a4f937e6ef855";
+// let units = "&units=imperial"
 const searchBox = document.querySelector('.search-box');
+const lat = document.querySelector('.lat');
+const lon = document.querySelector('.lon');
 
+ const fivedayApi = {
+     fiveKey: "3fa7210f886680035b976ee7d2b85be0",
+     fiveBase: "https://api.openweathermap.org/data/2.5/"
+ }
+$('.future').on('click', function(){
+    console.log(lat.value)
+    console.log(lon.value)
+    getFiveDay(lat.value, lon.value);
+})
+  function getFiveDay (lat, lon){
+    fetch(`${fivedayApi.fiveBase}onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${fivedayApi.fiveKey}`)
+    .then(response => {
+        return response.json();
+    }).then(showForecast)
+  };
 
-// searchBox.addEventListener('keypress', userSearch)
+function showForecast(response){
+    console.log(response);
+}
 
 $('.locationsearch').on('click', function (){
     console.log(searchBox.value)
