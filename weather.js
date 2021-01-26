@@ -39,8 +39,8 @@ function showWeather(response){
     let lowHighTemp = document.querySelector('.hi-low')
     lowHighTemp.innerText = `Low ${Math.round(response.list[0].main.temp_min)}°F /  High ${Math.round(response.list[0].main.temp_max)}°F`;
 
-    let fiveDay = document.querySelector('.fiveday')
-    fiveDay.innerText = `${response.list.weather}`
+    let currentWeather = document.querySelector('.currentWeather')
+    currentWeather.innerText = `${response.list[0].weather[0].description}`
 };
 
 // THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
