@@ -18,6 +18,7 @@ const searchBox = document.querySelector('.search-box');
 const lat = document.querySelector('.lat');
 const lon = document.querySelector('.lon');
 
+
 //event listener / button for FIVE DAY weather
 $('.future').on('click', function(){
     console.log(lat.value)
@@ -37,13 +38,19 @@ function showForecast(response){
     console.log(response);
     let UVI = document.querySelector('.fiveDay .UVI1');
     let futureDescription = document.querySelector('.fiveDay .futureCastDescription1');
-    let future1 = document.querySelector('.fiveDay .futureCastTemp1')
-    let locationIcon = document.querySelector('.fiveDay .weather-icon');
-    const {icon} = `${response.daily[0].weather[0].icon}`;
+    let future1 = document.querySelector('.fiveDay .futureCastTemp1');
+    let locationIcon = document.querySelector('.fiveDay .weather-icon1');
+    let humidity1 = document.querySelector('.futureCastHumidity1');
+    let wind1 = document.querySelector('.futureWind1')
+
+    
+    let icon = `${response.daily[0].weather[0].icon}`;
     UVI.innerHTML = `${response.current.uvi}<span> UVI</span>`;
     futureDescription.innerText = `${response.daily[0].weather[0].description}`;
-    future.innerText = `${response.daily[0].temp.day}<span> °F</span>`
-    locationIcon.innerHTML =`<img src="icons/${icon}.png"></img>`
+    future1.innerHTML = `${response.daily[0].temp.day}<span> °F</span>`;
+    humidity1.innerHTML =`${response.daily[0].humidity}<span> % Humidity</span>`;
+    wind1.innerHTML = `${response.daily[0].wind_speed}<span> Wind Speed</span>`;
+    locationIcon.innerHTML =`<img src="http://openweathermap.org/img/wn/${icon}.png"></img>`;
 }
 
 // event listener / button for CURRENT weather
@@ -56,11 +63,11 @@ $('.locationsearch').on('click', function (){
 function getWeather(query){
     fetch(`${api.base}forecast?q=${query}&units=imperial&APPID=${api.key}`)
     .then(response => {
+        console.log(response);
         return response.json();
     }).then(showWeather)
 };
 // Function to show CURRENT weather only 
-console.log(response);
 function showWeather(response){
     let city = document.querySelector('.location .city')
     city.innerText = `${response.city.name}, ${response.city.country}`;
@@ -74,10 +81,10 @@ function showWeather(response){
     let currentWeather = document.querySelector('.currentWeather')
     currentWeather.innerText = `${response.list[0].weather[0].description}`
 
-    let icon = document.querySelector('.icon')
-    const {icon1} = `${response.list[0].weather[0].icon}`
+    let iconcurrent = document.querySelector('.icon')
+    let {icon1} = `${response.list[0].weather[0].icon}`
     // currentWeather.innerText = `${response.list[0].weather[0].icon}`
-    icon.innerHTML =`<img alt ="weather icon" src="${icon1}.png"></img>`
+    iconcurrent.innerHTML =`<img src="http://openweathermap.org/img/wn/${icon1}.png"></img>`
 };
 
 // THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index

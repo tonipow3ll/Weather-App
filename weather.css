@@ -1,6 +1,5 @@
 .container{
     max-width: 50vw;
-    justify-content: right;
 }
 header{
     display: flex;
@@ -8,3 +7,4 @@ header{
     align-items: center;
     padding: 50px 15px 15px;
 }
+
