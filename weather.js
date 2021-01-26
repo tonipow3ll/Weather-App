@@ -142,10 +142,12 @@ function showWeather(response){
     currentWeather.innerText = `${response.list[0].weather[0].description}`
 
     let iconcurrent = document.querySelector('.icon')
-    let {icon1} = `${response.list[0].weather[0].icon}`
-    // currentWeather.innerText = `${response.list[0].weather[0].icon}`
+    let icon1 = `${response.list[0].weather[0].icon}`
+    currentWeather.innerText = `${response.list[0].weather[0].icon}`
     iconcurrent.innerHTML =`<img src="http://openweathermap.org/img/wn/${icon1}.png"></img>`
 };
+
+
 
 // THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
 // WHEN I view the UV index
