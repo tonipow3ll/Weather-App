@@ -1,4 +1,7 @@
 $( document ).ready(function() {
+
+    // full link 
+    //https://api.openweathermap.org/data/2.5/weather?q= LOCATIONHERE&units=imperial&appid=49f44633a22b64ed242a4f937e6ef855
     
     //weather API for current city 
     const api = {
@@ -11,51 +14,24 @@ $( document ).ready(function() {
         fiveBase: "https://api.openweathermap.org/data/2.5/"
     }
 
-    const openCageAPI = {
-        ocKey: "345eb573b13c4ab5bf4d94955eafd29d",
-        ocBase: "https://api.opencagedata.com/geocode/v1/json?q="
-    }
-
-    const searchBox = document.querySelector('.search-box');
-
-    function getLocation() {
-       return fetch(`${openCageAPI.ocBase}BOSTON,MA&key=${openCageAPI.ocKey}`)
-        .then(response => {
-            return response.json();
-        }).then(function (response) {
-          const locData = response.results[0].components;
-         return `${locData.city} ${locData.state_code}`;
-        }).then(function (){
-                fetch(`${fivedayApi.fiveBase}forecast?q=${locData.city}${locData.state_code}&units=imperial&appid=${fivedayApi.fiveKey}`)
-                .then(response => {
-                    return response.json();
-                }).then(showForecast)
-            
-        })
-    }
-
-
-    // API call for FIVE DAY weather
-//   function getFiveDay (query){
-//     fetch(`${fivedayApi.fiveBase}forecast?q=${locData.city}${locData.state_code}&units=imperial&appid=${fivedayApi.fiveKey}`)
-//     .then(response => {
-//         return response.json();
-//     }).then(showForecast)
-//   };
-
-
-    getLocation().then(console.log)
+const searchBox = document.querySelector('.search-box');
 const lat = document.querySelector('.lat');
 const lon = document.querySelector('.lon');
 
 
-
 //event listener / button for FIVE DAY weather
 $('.future').on('click', function(){
-    getLocation();
+    console.log(lat.value)
+    console.log(lon.value)
+    getFiveDay(lat.value, lon.value);
 })
-
-
+// API call for FIVE DAY weather
+  function getFiveDay (lat, lon){
+    fetch(`${fivedayApi.fiveBase}onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${fivedayApi.fiveKey}`)
+    .then(response => {
+        return response.json();
+    }).then(showForecast)
+  };
 
   // function to show FIVE DAY weather
 function showForecast(response){
@@ -137,28 +113,22 @@ function showForecast(response){
     locationIcon5.innerHTML =`<img src="http://openweathermap.org/img/wn/${icon5}.png"></img>`;
 }
 
-
 // event listener / button for CURRENT weather
 $('.locationsearch').on('click', function (){
     console.log(searchBox.value)
-    // getLocation();
     getWeather(searchBox.value)
-    getFiveDay();
 })
 
 // function for getting CURRENT weather
 function getWeather(query){
     fetch(`${api.base}forecast?q=${query}&units=imperial&APPID=${api.key}`)
     .then(response => {
+        console.log(response);
         return response.json();
     }).then(showWeather)
-   
 };
 // Function to show CURRENT weather only 
 function showWeather(response){
-
-    console.log(response);
-
     let city = document.querySelector('.location .city')
     city.innerText = `${response.city.name}, ${response.city.country}`;
     
