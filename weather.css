@@ -1,5 +1,6 @@
 .container{
     max-width: 100vw;
+    max-height: 100%;
     align-items: center;
     text-align: center;
     justify-content: center;
@@ -12,10 +13,10 @@ header{
     align-items: center;
     padding: 50px 15px 15px;
 }
-
 h1{
     background-color:#535c68 ;
     text-align: center;
     justify-content: center;
     color: #dff9fb;
 }
+
