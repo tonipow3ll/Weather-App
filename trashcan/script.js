@@ -1,8 +1,7 @@
 $( document ).ready(function() {
 
- // local storage
-
- let pageData = $('body').html();
+    // full link 
+    //https://api.openweathermap.org/data/2.5/weather?q= LOCATIONHERE&units=imperial&appid=49f44633a22b64ed242a4f937e6ef855
     
     //weather API for current city 
     const api = {
@@ -89,7 +88,7 @@ function showForecast(response){
     let future4 = document.querySelector('.fiveDay .futureCastTemp4');
     let locationIcon4 = document.querySelector('.fiveDay .weather-icon4');
     let humidity4 = document.querySelector('.futureCastHumidity4');
-    let wind4 = document.querySelector('.futureWind4')
+    let wind4 = document.querySelector('.futureWind1')
     let icon4 = `${response.daily[3].weather[0].icon}`;
     UVI4.innerHTML = `${response.current.uvi}<span> UVI</span>`;
     futureDescription4.innerText = `${response.daily[3].weather[0].description}`;
@@ -130,13 +129,7 @@ function getWeather(query){
 };
 // Function to show CURRENT weather only 
 function showWeather(response){
-
-    let latitude = document.querySelector('.latitude');
-    let longitude = document.querySelector('.longitude');
-
-    latitude.innerText = `${response.city.coord.lat} Latitude`
-    longitude.innerText = `${response.city.coord.lon} Longitude`
-    let city = document.querySelector('.location .city');
+    let city = document.querySelector('.location .city')
     city.innerText = `${response.city.name}, ${response.city.country}`;
     
     let temperature = document.querySelector('.current .temp')
