@@ -116,10 +116,18 @@ function showForecast(response){
 
 // event listener / button for CURRENT weather
 $('.locationsearch').on('click', function (){
-    console.log(searchBox.value)
+    // console.log(searchBox.value)
     getWeather(searchBox.value)
+    localStorage.setItem('citysearch', searchBox.value)
 })
 
+ if (localStorage !== ""){
+     console.log(localStorage)
+     getWeather(localStorage.getItem('citysearch'))
+    //  localStorage.getItem(JSON.stringify('citysearch'))
+    //  let inputBox = document.getElementById("lstest")
+    //     inputBox.innerText = localStorage.getItem(JSON.stringify('citysearch'));
+ };
 // function for getting CURRENT weather
 function getWeather(query){
     fetch(`${api.base}forecast?q=${query}&units=imperial&APPID=${api.key}`)

@@ -7,6 +7,9 @@
     background-color:#95afc0;
     color: #dff9fb;
 }
+body{
+    background-color:#95afc0;
+}
 header{
     display: flex;
     justify-content: center;
@@ -19,4 +22,6 @@ h1{
     justify-content: center;
     color: #dff9fb;
 }
-
+row{
+    align-items: center;
+}
