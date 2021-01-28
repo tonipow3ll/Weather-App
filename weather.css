@@ -27,6 +27,27 @@ h1{
 }
 
 button{
-    background-color: #dff9fb;
+   
+    background-color: transparent;
     border-radius: 1rem;
+    border: none;
+}
+button:hover{
+ background-color: #dff9fb;
+}
+input{
+    background-color: transparent;
+    /* border: solid; */
+}
+.UVIGreen{
+    background-color: yellowgreen;
+}
+.UVIYellow{
+    background-color: yellow;
+}
+.UVIOrange{
+    background-color: orangered;
+}
+.UVIRed{
+    background-color: red;
 }
