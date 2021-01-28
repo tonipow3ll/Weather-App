@@ -1,8 +1,10 @@
 $( document ).ready(function() {
 
- // local storage
+ // date
+ 
+ const currentDate = dayjs().format('dddd');
+ $("#currentDay").text(currentDate);
 
- let pageData = $('body').html();
     
     //weather API for current city 
     const api = {
@@ -40,6 +42,7 @@ $('.future').on('click', function(){
 function showForecast(response){
     console.log(response);
     // day 1
+    let date = document.querySelector('.fiveDay .date')
     let UVI = document.querySelector('.fiveDay .UVI1');
     let futureDescription = document.querySelector('.fiveDay .futureCastDescription1');
     let future1 = document.querySelector('.fiveDay .futureCastTemp1');
@@ -47,6 +50,7 @@ function showForecast(response){
     let humidity1 = document.querySelector('.futureCastHumidity1');
     let wind1 = document.querySelector('.futureWind1')
     let icon = `${response.daily[0].weather[0].icon}`;
+    date.innerText = dayjs().add(1,'day').format('MMM D, dddd')
     UVI.innerHTML = `${response.daily[0].uvi}<span> UVI</span>`;
     futureDescription.innerText = `${response.daily[0].weather[0].description}`;
     future1.innerHTML = `${response.daily[0].temp.day}<span> °F</span>`;
@@ -54,13 +58,13 @@ function showForecast(response){
     wind1.innerHTML = `${response.daily[0].wind_speed}<span> Wind Speed</span>`;
     locationIcon.innerHTML =`<img src="http://openweathermap.org/img/wn/${icon}.png"></img>`;
 
-    if (UVI <= 2) {
+    if (`${response.daily[0].uvi}` <= 2) {
         $(".UVI1").attr("class", "UVIGreen");
     }
-    else if (2 < UVI && UVI <= 5) {
+    else if (2 < `${response.daily[0].uvi}` && `${response.daily[0].uvi}` <= 5) {
         $(".UVI1").attr("class", "UVIYellow");
     }
-    else if (5 < UVI && UVI <= 7) {
+    else if (5 < `${response.daily[0].uvi}` && `${response.daily[0].uvi}` <= 7) {
         $(".UVI1").attr("class", "UVIOrange");
     }
     else {
@@ -68,6 +72,7 @@ function showForecast(response){
     }
 
     // day 2
+    let date1 = document.querySelector('.fiveDay .date1')
     let UVI2 = document.querySelector('.fiveDay .UVI2');
     let futureDescription2 = document.querySelector('.fiveDay .futureCastDescription2');
     let future2 = document.querySelector('.fiveDay .futureCastTemp2');
@@ -75,6 +80,7 @@ function showForecast(response){
     let humidity2 = document.querySelector('.futureCastHumidity2');
     let wind2 = document.querySelector('.futureWind2')
     let icon2 = `${response.daily[1].weather[0].icon}`;
+    date1.innerText = dayjs().add(2,'day').format('MMM D, dddd');
     UVI2.innerHTML = `${response.daily[1].uvi}<span> UVI</span>`;
     futureDescription2.innerText = `${response.daily[1].weather[0].description}`;
     future2.innerHTML = `${response.daily[1].temp.day}<span> °F</span>`;
@@ -82,27 +88,29 @@ function showForecast(response){
     wind2.innerHTML = `${response.daily[1].wind_speed}<span> Wind Speed</span>`;
     locationIcon2.innerHTML =`<img src="http://openweathermap.org/img/wn/${icon2}.png"></img>`;
 
-    if (UVI2 <= 2) {
+    if (`${response.daily[1].uvi}` <= 2) {
         $(".UVI2").attr("class", "UVIGreen");
     }
-    else if (2 < UVI && UVI <= 5) {
+    else if (2 < `${response.daily[1].uvi}` && `${response.daily[1].uvi}` <= 5) {
         $(".UVI2").attr("class", "UVIYellow");
     }
-    else if (5 < UVI && UVI <= 7) {
+    else if (5 < U`${response.daily[1].uvi}` && `${response.daily[1].uvi}` <= 7) {
         $(".UVI2").attr("class", "UVIOrange");
     }
-    else {
-        $(".UVI2").attr("class", "UVIRed");
-    }
+    // else {
+    //     $(".UVI2").attr("class", "UVIRed");
+    // }
     
     // day 3
+    let date2 = document.querySelector('.fiveDay .date2');
     let UVI3 = document.querySelector('.fiveDay .UVI3');
     let futureDescription3 = document.querySelector('.fiveDay .futureCastDescription3');
     let future3 = document.querySelector('.fiveDay .futureCastTemp3');
     let locationIcon3 = document.querySelector('.fiveDay .weather-icon3');
     let humidity3 = document.querySelector('.futureCastHumidity3');
-    let wind3 = document.querySelector('.futureWind3')
+    let wind3 = document.querySelector('.futureWind3');
     let icon3 = `${response.daily[2].weather[0].icon}`;
+    date2.innerText = dayjs().add(3,'day').format('MMM D, dddd');
     UVI3.innerHTML = `${response.daily[2].uvi}<span> UVI</span>`;
     futureDescription3.innerText = `${response.daily[2].weather[0].description}`;
     future3.innerHTML = `${response.daily[2].temp.day}<span> °F</span>`;
@@ -110,20 +118,20 @@ function showForecast(response){
     wind3.innerHTML = `${response.daily[2].wind_speed}<span> Wind Speed</span>`;
     locationIcon3.innerHTML =`<img src="http://openweathermap.org/img/wn/${icon3}.png"></img>`;
 
-    if (UVI3 <= 2) {
-        $(".UVI2").attr("class", "UVIGreen");
+    if (`${response.daily[2].uvi}` <= 2) {
+        $(".UVI3").attr("class", "UVIGreen");
     }
-    else if (2 < UVI && UVI <= 5) {
+    else if (2 < `${response.daily[2].uvi}` && `${response.daily[2].uvi}` <= 5) {
         $(".UVI3").attr("class", "UVIYellow");
     }
-    else if (5 < UVI && UVI <= 7) {
+    else if (5 < `${response.daily[2].uvi}` && `${response.daily[2].uvi}` <= 7) {
         $(".UVI3").attr("class", "UVIOrange");
     }
     else {
         $(".UVI3").attr("class", "UVIRed");
     }
     // day 4
-
+    let date3 = document.querySelector('.fiveDay .date3')
     let UVI4 = document.querySelector('.fiveDay .UVI4');
     let futureDescription4 = document.querySelector('.fiveDay .futureCastDescription4');
     let future4 = document.querySelector('.fiveDay .futureCastTemp4');
@@ -131,6 +139,7 @@ function showForecast(response){
     let humidity4 = document.querySelector('.futureCastHumidity4');
     let wind4 = document.querySelector('.futureWind4');
     let icon4 = `${response.daily[3].weather[0].icon}`;
+    date3.innerText = dayjs().add(4,'day').format('MMM D, dddd');
     UVI4.innerHTML = `${response.daily[3].uvi}<span> UVI</span>`;
     futureDescription4.innerText = `${response.daily[3].weather[0].description}`;
     future4.innerHTML = `${response.daily[3].temp.day}<span> °F</span>`;
@@ -138,19 +147,20 @@ function showForecast(response){
     wind4.innerHTML = `${response.daily[3].wind_speed}<span> Wind Speed</span>`;
     locationIcon4.innerHTML =`<img src="http://openweathermap.org/img/wn/${icon4}.png"></img>`;
 
-    if (UVI4 <= 2) {
+    if (`${response.daily[3].uvi}` <= 2) {
         $(".UVI4").attr("class", "UVIGreen");
     }
-    else if (2 < UVI && UVI <= 5) {
+    else if (2 < `${response.daily[3].uvi}` && `${response.daily[3].uvi}` <= 5) {
         $(".UVI4").attr("class", "UVIYellow");
     }
-    else if (5 < UVI && UVI <= 7) {
+    else if (5 < `${response.daily[3].uvi}` && `${response.daily[3].uvi}` <= 7) {
         $(".UVI4").attr("class", "UVIOrange");
     }
     else {
         $(".UVI4").attr("class", "UVIRed");
     }
     // day 5
+    let date4 = document.querySelector('.fiveDay .date4')
     let UVI5 = document.querySelector('.fiveDay .UVI5');
     let futureDescription5 = document.querySelector('.fiveDay .futureCastDescription5');
     let future5 = document.querySelector('.fiveDay .futureCastTemp5');
@@ -158,6 +168,7 @@ function showForecast(response){
     let humidity5 = document.querySelector('.futureCastHumidity5');
     let wind5 = document.querySelector('.futureWind5');
     let icon5 = `${response.daily[4].weather[0].icon}`;
+    date4.innerText = dayjs().add(5,'day').format('MMM D, dddd');
     UVI5.innerHTML = `${response.daily[4].uvi}<span> UVI</span>`;
     futureDescription5.innerText = `${response.daily[4].weather[0].description}`;
     future5.innerHTML = `${response.daily[4].temp.day}<span> °F</span>`;
@@ -165,13 +176,13 @@ function showForecast(response){
     wind5.innerHTML = `${response.daily[4].wind_speed}<span> Wind Speed</span>`;
     locationIcon5.innerHTML =`<img src="http://openweathermap.org/img/wn/${icon5}.png"></img>`;
     
-    if (UVI5 <= 2) {
+    if (`${response.daily[4].uvi}` <= 2) {
         $(".UVI5").attr("class", "UVIGreen");
     }
-    else if (2 < UVI && UVI <= 5) {
+    else if (2 < `${response.daily[4].uvi}` && `${response.daily[4].uvi}` <= 5) {
         $(".UVI5").attr("class", "UVIYellow");
     }
-    else if (5 < UVI && UVI <= 7) {
+    else if (5 < `${response.daily[4].uvi}` && `${response.daily[4].uvi}` <= 7) {
         $(".UVI5").attr("class", "UVIOrange");
     }
     else {
@@ -224,7 +235,7 @@ function showWeather(response){
 
     let iconcurrent = document.querySelector('.icon')
     let icon1 = `${response.list[0].weather[0].icon}`
-    currentWeather.innerText = `${response.list[0].weather[0].icon}`
+    iconcurrent.innerText = `${response.list[0].weather[0].icon}`
     iconcurrent.innerHTML =`<img src="http://openweathermap.org/img/wn/${icon1}.png"></img>`
 };
 
