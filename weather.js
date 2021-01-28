@@ -25,6 +25,8 @@ $('.future').on('click', function(){
     console.log(lat.value)
     console.log(lon.value)
     getFiveDay(lat.value, lon.value);
+    localStorage.setItem('Lat', lat.value) 
+    localStorage.setItem('Lon', lon.value)
 })
 // API call for FIVE DAY weather
   function getFiveDay (lat, lon){
@@ -124,9 +126,9 @@ $('.locationsearch').on('click', function (){
  if (localStorage !== ""){
      console.log(localStorage)
      getWeather(localStorage.getItem('citysearch'))
-    //  localStorage.getItem(JSON.stringify('citysearch'))
-    //  let inputBox = document.getElementById("lstest")
-    //     inputBox.innerText = localStorage.getItem(JSON.stringify('citysearch'));
+    //  getFiveDay(localStorage.getItem('Lat','Lon'))
+     console.log(localStorage.getItem('Lat' ,'Lon'))
+     
  };
 // function for getting CURRENT weather
 function getWeather(query){
