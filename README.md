@@ -8,17 +8,13 @@
 [View the deployed application here](https://tonipow3ll.github.io/Weather-App/) 
 
 
-![](https://user-images.githubusercontent.com/72999798/105649987-2f75b480-5e80-11eb-85e5-aae4e92b6945.png )
-
-
-
-
+![](https://user-images.githubusercontent.com/72999798/106310044-fe570480-6230-11eb-9ac6-813cb5fc4227.png )
 
 
 
 # Credits
-#### Google Fonts was used for all fonts on this application. 
-#### Materialize was used for the save icons. 
+#### Font Awesome was used for a few of the icons
+#### Open Weather Map API was used for the weather data
 
 ### Many thanks to [Scott Byer](https://github.com/switch120), [Mike Fearly](https://michaelfearnley.com/) and Bobby Hoffman- for sharing their knowledge with us! 
  
