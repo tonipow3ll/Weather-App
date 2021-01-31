@@ -199,7 +199,8 @@ $('.locationsearch').on('click', function (){
  if (localStorage !== ""){
      console.log(localStorage)
      getWeather(localStorage.getItem('citysearch'))
-    //  getFiveDay(localStorage.getItem('Lat','Lon'))
+    //  getFiveDay(localStorage.getItem('Lat', 'Lon'))
+    //  getFiveDay(localStorage.getItem('Lon'))
      console.log(localStorage.getItem('Lat' ,'Lon'))
      
  };
