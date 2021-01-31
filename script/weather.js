@@ -31,8 +31,8 @@ $('.future').on('click', function(){
     localStorage.setItem('Lon', lon.value)
 })
 // API call for FIVE DAY weather
-  function getFiveDay (lat, lon){
-    fetch(`${fivedayApi.fiveBase}onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${fivedayApi.fiveKey}`)
+  function getFiveDay (latitude, longitude){
+    fetch(`${fivedayApi.fiveBase}onecall?lat=${latitude}&lon=${longitude}&units=imperial&appid=${fivedayApi.fiveKey}`)
     .then(response => {
         return response.json();
     }).then(showForecast)
@@ -238,6 +238,8 @@ function showWeather(response){
     let icon1 = `${response.list[0].weather[0].icon}`
     iconcurrent.innerText = `${response.list[0].weather[0].icon}`
     iconcurrent.innerHTML =`<img src="http://openweathermap.org/img/wn/${icon1}.png"></img>`
+
+    getFiveDay(latitude,longitude)
 };
 
 
