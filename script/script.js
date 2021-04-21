@@ -12,12 +12,18 @@ const api = {
 
 const currentDate = dayjs().format('MMMM, D, YYYY');
 const currentDay = dayjs().format('dddd');
+const nextDay = dayjs().add(1,'day').format('dddd');
+const thirdDay = dayjs().add(2,'day').format('dddd');
+const fourthDay = dayjs().add(3,'day').format('dddd');
+const fifthDay = dayjs().add(4,'day').format('dddd');
 $(".date").text(currentDate);
 $('.day').text(currentDay);
-$('.day1').text(currentDay);
-$('.day2').text(currentDay);
-$('.day3').text(currentDay);
-$('.day4').text(currentDay);
+$('.day1').text(nextDay);
+$('.day2').text(thirdDay);
+$('.day3').text(fourthDay);
+$('.day4').text(fifthDay);
+
+dayjs().add(1,'day')
 
 
 const getLocation = () => {
