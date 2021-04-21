@@ -220,7 +220,7 @@ function showWeather(response){
 
     latitude.innerText = `${response.city.coord.lat} Latitude`;
     longitude.innerText = `${response.city.coord.lon} Longitude`;
-
+ 
     
     let city = document.querySelector('.location .city');
     city.innerText = `${response.city.name}, ${response.city.country}`;
