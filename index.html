@@ -32,7 +32,7 @@
                         <h4>Search for a City</h4>
                         <form>
                             <div class="input-group">
-                                <input> <button class="btn btn-info"><i class="fas fa-search"></i></button>
+                                <input id="search"> <button id="search-btn" class="btn btn-info"><i class="fas fa-search"></i></button>
                             </div>
                         </form>
                         <ul>
@@ -50,11 +50,12 @@
                                 <div>
                                     <!-- weather icon here -->
                                 </div>
-                                <p class="card-text">Temperature</p>
-                                <p class="card-text">Humidity</p>
-                                <p class="card-text">Wind Speed</p>
-                                <p class="card-text">UV Index</p>
-                                <p class="card-text"></p>
+                                <p class="card-text" id="location">Location</p>
+                                <p class="card-text current temp">Temperature</p>
+                                <p class="card-text current humidity">Humidity</p>
+                                <p class="card-text current wind">Wind Speed</p>
+                                <p class="card-text current uv">UV Index</p>
+                                <p class="card-text weather-icon"></p>
                             </div>
                         </div>
                     </div>
@@ -63,11 +64,11 @@
                             <h5>5 Day Forecast</h5>
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-12 col-md-6 col-lg day">blablabla</div>
-                                    <div class="col-12 col-md-6 col-lg day1">blablabla</div>
-                                    <div class="col-12 col-md-6 col-lg day2">blablabla</div>
-                                    <div class="col-12 col-md-6 col-lg day3">blablabla</div>
-                                    <div class="col-12 col-md-6 col-lg day4">blablabla</div>
+                                    <div class="col-12 col-md-6 col-lg day">days fill in here</div>
+                                    <div class="col-12 col-md-6 col-lg day1"></div>
+                                    <div class="col-12 col-md-6 col-lg day2"></div>
+                                    <div class="col-12 col-md-6 col-lg day3"></div>
+                                    <div class="col-12 col-md-6 col-lg day4"></div>
                                 </div>
                             </div>
                         </div>
