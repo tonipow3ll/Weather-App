@@ -50,16 +50,25 @@ const getLocation = () => {
     redirect(lat, lon);
   };
 
-$('#search-btn').click(() => {
+$('#search-btn').click((event) => {
     // query might break 
+    event.preventDefault();
 const query = $('#search').val().trim();
-let currentCity = `${api.base}forecast?q=${query}&units=imperial&APPID=${api.key}`
+let currentCity = `${api.base}forecast?q=${query}&units=imperial&APPID=cad650368f646db27b36a263f6e8c5df`
 
 $.ajax({
-    url: currentCity + "?q=" + query + "&" + "APPID=" + api.key,
+    url: currentCity,
     method: "GET"
 }).then((response) => {
-    $('#location').text(response.name)
+  console.log(response)
+  // let city = $('#location');
+  // city.innerHTML = `${response.city.name}`
+    $('#location').text(response.city.name)
+    $('#currentTemp').text("Current Temp " + Math.round(response.list[0].main.temp) + '°F')
+    $('#lo').text('Low ' + Math.round(response.list[0].main.temp_min) + '°F')
+    $('#hi').text('High ' + Math.round(response.list[0].main.temp_min) + '°F')
+    $('#humidity').text('Humidity ' + response.list[0].main.humidity)
+    $('#wind').text('Wind Speed ' + response.list[0].wind.speed)
     })
 })
 
