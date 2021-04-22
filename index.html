@@ -32,7 +32,8 @@
                         <h4>Search for a City</h4>
                         <form>
                             <div class="input-group">
-                                <input id="search"> <button id="search-btn" class="btn btn-info"><i class="fas fa-search"></i></button>
+                                <input id="search"> <button id="search-btn" class="btn btn-info"><i
+                                        class="fas fa-search"></i></button>
                             </div>
                         </form>
                         <ul>
@@ -45,32 +46,49 @@
                         <div class="card">
                             <!-- current weather -->
                             <div class="card-body">
-                                <h5>Todays Weather</h5>
+                                <h3>Todays Weather</h3>
                                 <p id="currentDay" class="date">Current day goes here</p>
+                                <p class="day"></p>
                                 <div>
-                                    <!-- weather icon here -->
+                                
                                 </div>
                                 <h3 class="card-text" id="location"></h3>
-                                <p class="card-text current temp" id="currentTemp">Current: </p>
-                                <p class="card-text current humidity" id="lo">Low Temp:</p>
-                                <p class="card-text current wind" id="hi">High Temp:</p>
-                                <p class="card-text current humidity" id="humidity" >Humidity</p>
-                                <p class="card-text current wind" id="wind">Wind Speed</p>
-                                <p class="card-text current uv" id="uv">UV Index</p>
-                                <p class="card-text weather-icon"></p>
+                                <h4 class="card-text current temp" id="currentTemp"></h4>
+                                <p class="card-text current humidity" id="lo"></p>
+                                <p class="card-text current wind" id="hi"></p>
+                                <p class="card-text current humidity" id="humidity"></p>
+                                <p class="card-text current wind" id="wind"></p>
+                                <p class="card-text current uv" id="uv"></p>
+                                <p class="card-text" id="desc"></p>
+                                <img class="card-text weather-icon" id="icon">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-9">
-                            <h5>5 Day Forecast</h5>
+                            <h3>5 Day Forecast</h3>
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-12 col-md-6 col-lg day">days fill in here</div>
-                                    <div class="col-12 col-md-6 col-lg day1"></div>
-                                    <div class="col-12 col-md-6 col-lg day2"></div>
-                                    <div class="col-12 col-md-6 col-lg day3"></div>
-                                    <div class="col-12 col-md-6 col-lg day4"></div>
+                                    <div class="col-12 col-md-6 col-lg">
+                                        <p class="card-text current humidity day1" id="1"></p>
+                                        <img class="weather-icon" id="icon1">
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg">
+                                        <p class="card-text current humidity day2" id="2"></p>
+                                        <img class="weather-icon" id="icon2">
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg">
+                                        <p class="card-text current humidity day3" id="3"></p>
+                                        <img class="weather-icon" id="icon3">
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg">
+                                        <p class="card-text current humidity day4" id="4"></p>
+                                        <img class="weather-icon" id="icon4">
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg">
+                                        <p class="card-text current humidity day5" id="5"></p>
+                                        <img class="weather-icon" id="icon5">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +101,9 @@
     <!-- BOOTSTRAP -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.js"></script>
     <!-- Day.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js" integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"
+        integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg=="
+        crossorigin="anonymous"></script>
     <!-- Custom JS -->
     <script src="script/script.js"></script>
 </body>
