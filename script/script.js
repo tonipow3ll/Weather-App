@@ -42,17 +42,23 @@ $('.day5').text(sixthDay);
 // const getLocation = () => {
 //     if (navigator.geolocation) {
 //       navigator.geolocation.getCurrentPosition(showPosition);
+//       // console.log(showPosition)
 //     } 
 //     else {
 //       alert("Geolocation is not supported by this browser.");
 //     }
 //   };
 
-//   function showPosition(position) {
-//     const lat = position.coords.latitude;
-//     const lon = position.coords.longitude;
-//     redirect(lat, lon);
-//   };
+  // function showPosition(position) {
+  //   const lat = position.coords.latitude;
+  //   const lon = position.coords.longitude;
+  //   console.log(position)
+  //   redirect(lat, lon);
+  // };
+
+  // redirect = (lat, lon) => {
+  //   console.log(lat, lon)
+  // }
 
 $('#search-btn').click((event) => {
     // query might break 
@@ -60,13 +66,13 @@ $('#search-btn').click((event) => {
     getWeather();
     const query = $('#search').val().trim();
 
-    let cities = JSON.parse(localStorage.getItem("storedSearchHistory")) || [];
-    cities.push(query);
+    // let cities = JSON.parse(localStorage.getItem("storedSearchHistory")) || [];
+    // cities.push(query);
 
-    localStorage.setItem("storedSearchHistory", JSON.stringify(cities));
+    // localStorage.setItem("storedSearchHistory", JSON.stringify(cities));
 
-    // Print list of cities to the page
-    //  cities.forEach($(".cities").prepend('<li>' + cities + '</li>'));
+    // // Print list of cities to the page
+    //  cities.map($(".cities").prepend('<li>' + cities + '</li>'));
    
 })
 
@@ -115,7 +121,7 @@ getWeather = () => {
 
  writeForecast = () => {
    $('.five-day').removeClass('d-none')
-  console.log(fiveDay)
+  // console.log(fiveDay)
   $('#icon1').attr("src","http://openweathermap.org/img/wn/" + fiveDay[0].weather[0].icon + "@2x.png")
   $('#icon2').attr("src","http://openweathermap.org/img/wn/" + fiveDay[0].weather[0].icon + "@2x.png")
   $('#icon3').attr("src","http://openweathermap.org/img/wn/" + fiveDay[0].weather[0].icon + "@2x.png")
@@ -126,7 +132,13 @@ getWeather = () => {
   $('#3').text('Temp ' + Math.round(fiveDay[2].main.temp) + '°F')
   $('#4').text('Temp ' + Math.round(fiveDay[3].main.temp) + '°F')
   $('#5').text('Temp ' + Math.round(fiveDay[4].main.temp) + '°F')
+  $('.desc1').text( fiveDay[0].weather[0].description)
+  $('.desc2').text( fiveDay[1].weather[0].description)
+  $('.desc3').text( fiveDay[2].weather[0].description)
+  $('.desc4').text( fiveDay[3].weather[0].description)
+  $('.desc5').text( fiveDay[4].weather[0].description)
  }
+ 
 
 
   // getLocation();
