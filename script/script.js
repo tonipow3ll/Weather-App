@@ -86,6 +86,7 @@ getWeather = () => {
     // const lon = response.city.coord.lon;
     // let city = $('#location');
     // city.innerHTML = `${response.city.name}`
+    $('.todays-weather').removeClass('is-hidden')
 
       $('#location').text(response.city.name)
       $('#currentTemp').text("Current Temp " + Math.round(response.list[0].main.temp) + '°F')
@@ -120,7 +121,7 @@ getWeather = () => {
 }
 
  writeForecast = () => {
-   $('.five-day').removeClass('d-none')
+   $('.five-day').removeClass('is-hidden')
   // console.log(fiveDay)
   $('#icon1').attr("src","http://openweathermap.org/img/wn/" + fiveDay[0].weather[0].icon + "@2x.png")
   $('#icon2').attr("src","http://openweathermap.org/img/wn/" + fiveDay[0].weather[0].icon + "@2x.png")
