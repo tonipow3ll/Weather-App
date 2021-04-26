@@ -4,12 +4,16 @@ console.log("ready!")
 const fiveDay = [];
 
 // local storage - get previous searched items if they exist
-// let searchData;
-// if (!JSON.parse(localStorage.getItem('history'))) {
-//     searchData = [];
-// } else {
-//     searchData = JSON.parse(localStorage.getItem('history'));
-// }
+let searchData;
+if (!JSON.parse(localStorage.getItem('searchData'))) {
+    searchData = [];
+} else {
+    searchData = JSON.parse(localStorage.getItem('searchData'));
+    let i;
+    searchData.forEach(searchData => {
+      $('.cities').prepend(`<li>${searchData}</li>`)
+    })
+}
 // api for local weather, might not need both of these
 const api = {
    key: "cad650368f646db27b36a263f6e8c5df",
@@ -66,10 +70,10 @@ $('#search-btn').click((event) => {
     getWeather();
     const query = $('#search').val().trim();
 
-    // let cities = JSON.parse(localStorage.getItem("storedSearchHistory")) || [];
-    // cities.push(query);
+    let cities = JSON.parse(localStorage.getItem("searchData")) || [];
+    cities.push(query);
 
-    // localStorage.setItem("storedSearchHistory", JSON.stringify(cities));
+    localStorage.setItem("searchData", JSON.stringify(cities));
 
     // // Print list of cities to the page
     //  cities.map($(".cities").prepend('<li>' + cities + '</li>'));
