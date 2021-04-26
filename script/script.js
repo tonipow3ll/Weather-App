@@ -11,6 +11,7 @@ if (!JSON.parse(localStorage.getItem('searchData'))) {
     searchData = JSON.parse(localStorage.getItem('searchData'));
     let i;
     searchData.forEach(searchData => {
+    // add class=button here
       $('.cities').prepend(`<li>${searchData}</li>`)
     })
 }
@@ -69,15 +70,31 @@ $('#search-btn').click((event) => {
     event.preventDefault();
     getWeather();
     const query = $('#search').val().trim();
-
     let cities = JSON.parse(localStorage.getItem("searchData")) || [];
     cities.push(query);
 
     localStorage.setItem("searchData", JSON.stringify(cities));
-
+       // add class=button here
+    $('.cities').append(`<li>${query}</li>`)
     // // Print list of cities to the page
     //  cities.map($(".cities").prepend('<li>' + cities + '</li>'));
-   
+});
+
+// ===============================
+// need to get value from button to search
+// ===============================
+$('.button').click((event) => {
+  event.preventDefault();
+  // let i = $(this).attr('id')
+  // let city = $('li.button.innerText');
+  // query = city;
+  // console.log(query)
+  // getWeather()
+let city = JSON.parse(localStorage.getItem('searchData'))
+let i = $(this).attr('id')
+console.log(i)
+query = city[i];
+// console.log(query)
 })
 
 getWeather = () => {
